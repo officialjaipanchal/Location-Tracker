@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="LocationTracker.MainPage"
+             Title="Location Tracker">
+    <Grid>
+        <!-- Define rows for the Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- For header -->
+            <RowDefinition Height="*"/>
+            <!-- For map -->
+            <RowDefinition Height="Auto"/>
+            <!-- For buttons -->
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <Label Text="Location Tracker"
+               Grid.Row="0"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="24"
+               FontAttributes="Bold"
+               Margin="10"
+               TextColor="Black"/>
+
+        <!-- Map Section -->
+        <maps:Map x:Name="locationMap"
+                  Grid.Row="1"
+                  IsShowingUser="True"
+                  MapType="Street"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  Margin="7"/>
+
+
+        <!-- Button Section -->
+        <StackLayout Grid.Row="2"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     VerticalOptions="End"
+                     Spacing="10"
+                     Margin="10">
+            <Button Text="Track Location"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"
+                    Clicked="OnTrackLocationClicked"/>
+            <Button Text="Current Location"
+                    BackgroundColor="SeaGreen"
+                    TextColor="White"
+                    Clicked="OnShowCurrentLocationClicked"/>
+            <Button Text="Saved Locations"
+                    BackgroundColor="Goldenrod"
+                    TextColor="White"
+                    Clicked="OnShowSavedLocationsClicked"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
